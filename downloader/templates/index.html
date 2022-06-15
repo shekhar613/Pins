@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      {% load static %}
+      <meta charset="utf-8">
+      <title>{% block title %} alloader {% endblock %}</title>
+      <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      <link rel="stylesheet" href="{% static 'css/search_bar.css' %}">
+      {% block css %}
+      <link rel="stylesheet" href="{% static 'css/services section.css' %}"  />
+      {% endblock %}
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <script src="https://kit.fontawesome.com/65d87443ab.js" crossorigin="anonymous"></script>
+
+   </head>
+   <body>
+       <!-- navigator -->
+      <nav>
+         
+         <div class="logo">
+            alloader
+         </div>
+         <input type="checkbox" id="click">
+         <label for="click" class="menu-btn">
+         <i class="fas fa-bars"></i>
+         </label>
+         <ul>
+            <li><a class="active" href="/">Home</a></li>
+            <li><a href="/about_alloader">About</a></li>
+            <li><a href="#">Tools</a></li>
+            <li><a href="#">How its works </a></li>
+            <li><a href="#">Updates</a></li>
+         </ul>
+         
+      </nav>
+      <!-- search bar top heading section  -->
+      <div class="main_alloader_heading"><h2>{{ alloader }}</h2></div>
+      <div id="Search_bar_section" class="container">
+         <form action="/download" method="post">{% csrf_token %}
+            <div class="searchbar">
+                  <div class="wrapper">
+                     <i class="fa-solid fa-download"></i>
+                     <input id="search_video_link" name="url" type="text" placeholder="Past link here.." required="required">
+                     <i id="search_xmark" class="fa-solid fa-xmark"></i>
+                  </div>
+            </div>
+            <div class="download">
+                  <button type="submit">
+                     <i class="fa-solid fa-download"></i>Start
+                  </button>
+            </div>
+         </form>
+        
+      </div>
+      {% block body %}
+
+      <!-- section started -->
+      <section>
+        <div class="row">
+            <h2 class="section-heading" aria-hidden="false">Our Tools</h2>
+        </div>
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <div class="icon-wrapper">
+                        <i class="fa-brands fa-instagram"></i>                    </div>
+                    <h3> Reels  downloader</h3>
+                    <p>download your video by video link</p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <div class="icon-wrapper">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </div>
+                    <h3>Titok downloader</h3>
+                    <p>download your video by video link</p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <div class="icon-wrapper">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <h3>Likee downloader</h3>
+                    <p>download your video by video link</p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <div class="icon-wrapper">
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
+                    <h3>Youtube downloader</h3>
+                    <p>download your video by video link</p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <div class="icon-wrapper">
+                        <i class="fa-brands fa-pinterest"></i>
+                    </div>
+                    <h3>Pinterest downloader</h3>
+                    <p>download your video by video link</p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <div class="icon-wrapper">
+                        <i class="fa-brands fa-facebook"></i>
+                    </div>
+                    <h3>Facebook downloader</h3>
+                    <p>download your video by video link</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    {% block js %}<script src="{% static 'script/base.js' %}"></script>{% endblock %}
+    {% endblock %}
+    
+    
+   </body>
+   
+</html>

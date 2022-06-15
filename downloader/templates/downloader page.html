@@ -1,0 +1,56 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %} alloader-downloading {% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/download page.css' %}">
+{% endblock %}
+{% block body %}
+
+<div class="downloader_container">
+    <nav id="downloader_navigator"> Idhar s bhi paisa ....</nav>
+    <main>
+        <!-- <img class="img-fluid" src="https://i.pinimg.com/originals/64/2b/0f/642b0f15ff1e06870d0910380bdb66ed.jpg" alt="~"> -->
+        <div class="video_thumbnail" id="Preview_video_and_thumbnails">
+            <img id="thumbnail_img" class="img_fluid" src="{{ thumbnail }}" alt="~">
+        </div>
+        <div class="download_buttons_options">
+            <button  type="button" id="Preview_video_btn">Preview Video</button>
+            <button type="button" id="Video_thumbnail_btn">Video Thumbnail</button>
+            <button type="button" id="Download_thumbnail_btn">Download thumbnail</button>
+            <button  type="button" id="Download_video_btn">Download Video</button>
+        </div>
+    </main>
+    
+    <div id="content1">
+        <h5>Video Title</h5>
+        <p>{{ title }}</p>
+    </div>
+    <div id="content2">
+        <a id="Preview_video_main_url" href="{{ video_url }}" hidden >{{ filename }}</a> 
+        <button id="download_btn"><a href="static/video/{{ filename }}" title="download" download>Download</a></button>
+    </div>
+    <div id="content3">
+        <h5>Description</h5>
+        <p>{{ description }}</p>
+        
+    </div>
+    <div id="sidebar">Idhar s bhi paisa ....</div>
+    <footer>
+        <div id="alloder_links">
+            <a href="#">#Reels_downloader</a>
+            <a href="#">#Youtube_downloader</a>
+            <a href="#">#Likee_downloader</a>
+            <a href="#">#Facebook_video</a>
+            <a href="#">#Pins_downloader</a>
+        </div>
+    </footer>
+
+</div>
+
+{% block js %}
+<script src="{% static 'script/downloader.js' %}"></script>
+<script src="{% static 'script/base.js' %}"></script>
+{% endblock %}
+
+
+{% endblock %}
