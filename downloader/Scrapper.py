@@ -17,7 +17,6 @@ def pinkIntrest(url):
 
     site = requests.get("https://www.pinterest.com/pin/"+id)
     mainur=site.url
-    print(mainur)
     r=requests.get(mainur)
     soup=BeautifulSoup(r.content,'html.parser')
     script=soup.find('script',{"id":"__PWS_DATA__"}).text
@@ -38,7 +37,6 @@ def pinkIntrest(url):
         Script_data["filename"] = filename
         base_dir = BASE_DIR
         r = requests.get(Script_data["video_url"],stream=True)
-        print("path >> ",os.path.join(base_dir,"downloader/static/video"))
         with open(os.path.join(base_dir,"downloader/static/video",filename),"wb") as f:
             for chunk in r.iter_content(chunk_size=chunk_size):
                 f.write(chunk)

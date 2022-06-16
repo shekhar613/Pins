@@ -1,0 +1,137 @@
+*{
+	margin:0px;
+	padding:0px;
+	box-sizing: border-box;
+}
+.about-section{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr;
+    grid-area: "heading"
+                "subtitle"
+                "text-area"
+                "social-content"
+                "read_more_about";
+    /* grid-gap: 1rem; */
+    background: rgb(194, 235, 255);
+
+}
+.heading{
+    width: 95%;
+    margin: 1.5rem;
+    text-align: center;
+    grid: heading;
+    border-bottom: 1px solid rgb(148, 148, 148);
+}
+
+.subtitle{
+    width: 95%;
+    margin: 1.5rem;
+    text-align: center;
+    grid: subtitle;
+}
+.text-area{
+    width: 50%;
+    margin: 1.5rem;
+    margin-left: 20rem;
+    padding: 0.5rem;
+    /*background: rgb(233, 232, 232); */
+    grid: text-area;
+}
+.text-area ul{
+    margin-left: 1rem;
+}
+.text-area ul li{
+    text-decoration: none;
+    margin: 1.5rem;
+    padding-left: 10px;
+}
+.social-content{
+    width: 95%;
+    margin: 1.5rem;
+    padding: 1.5rem;
+    /* background: rgb(233, 232, 232); */
+    grid: social-content;
+    text-align: center;
+}
+.social-content button{
+    width: 160px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 7px;
+    padding: 15px;
+    margin: 0.2em;
+    cursor: pointer;
+    background: rgb(58, 32, 131);
+    color: white;
+}
+.read_more_about{
+    grid: read_more_about;
+    text-align: center;
+    
+}
+.read_more_about h4{
+    margin: 1rem;
+    font-weight: 600;
+}
+.read_more_about a{
+    margin: 1rem;
+    font-size:20px;
+    text-decoration: none;
+    
+}
+.read_more_about p,h5{
+    margin: 1rem;
+    font-size:15px;
+      
+}
+.read_more_about p{
+    margin-bottom: 0px;
+}
+
+@media screen and (max-width:950px) {
+    .heading{
+        width:85%;
+        margin:2px 1px 0 2px 2px;
+    
+    }
+    .subtitle{
+        width: 85%;
+    }
+    .text-area{
+        margin: 1.5rem;
+        width: 85%;
+        margin:2px 1px 0 2px 2px;
+
+    }
+    .social-content{
+        width: 100%;
+        margin: 0;
+    }
+    .text-area ul{
+        margin-left: 0;
+    }
+  
+}
+
+@media screen and (max-width:450px) {
+    .heading{
+        width:85%;
+        margin:2px 1px 0 2px 2px;
+    
+    }
+    .subtitle{
+        width: 85%;
+    }
+    .text-area{
+        margin: 1.5rem;
+        width: 85%;
+        margin:2px 1px 0 2px 2px;
+
+    }
+    .social-content{
+        width: 100%;
+        margin: 0;
+    }
+   
+}

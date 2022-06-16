@@ -17,10 +17,9 @@ def download(request):
 
         if("https://www.instagram.com" in url):
             link = Scrapper.instaDownloader(url)
-            print(link)
+        
         elif ("https://pin" in url):
             link = Scrapper.pinkIntrest(url)
-            print(link)
             
 
             
