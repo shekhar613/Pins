@@ -35,5 +35,9 @@ def youtube_down(url):
     my_video = my_video.streams.get_highest_resolution()
     my_video.download()
 
-youtube_down("https://www.youtube.com/watch?v=7BXJIjfJCsA")
+# youtube_down("https://www.youtube.com/watch?v=7BXJIjfJCsA")
 
+
+site = requests.get("https://youtu.be/NfN0eoWLo7Y")
+mainur=site.url
+print(mainur)

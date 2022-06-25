@@ -22,15 +22,9 @@ def download(request):
         elif ("https://pin" in url):
             link = Scrapper.pinkIntrest(url)
             
-        elif ("https://www.youtube" in url):
+        elif ("https://youtube" in url or "https://youtu.be" in url or "https://www.youtube" in url):
             link = Scrapper.youtube_down(url)
        
-            
-
-
-            
-    
-
     return render(request,"downloader page.html",context=link)
 
 def about_alloader(request):
