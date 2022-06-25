@@ -64,6 +64,7 @@ main{
 main img{
     height: 300px;
     width: auto;
+    max-width: 200px;
     box-shadow: 1px 1px 9px ;
 }
 #preview_video_id{

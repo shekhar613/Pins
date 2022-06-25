@@ -61,7 +61,8 @@
     color: white;
     font-weight: 600;
     font-size: 1rem;
-}
+  }
+
 .download button i{
     padding-right: 1em ;
     font-size: 1rem;
@@ -69,6 +70,31 @@
 }
 
 /* Responsive search bar */
+
+
+  .loader{
+    pointer-events: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #fff;
+    animation: an1 1s ease infinite;
+    transition: 1.2s;
+  }
+  @keyframes an1{
+    0%{
+      transform: rotate(0turn);
+      /* border-top-color:violet; */
+    }
+    100%{
+      transform: rotate(1turn);
+      /* border-top-color:teal; */
+    }
+  }
+
+
+  
 
 @media (max-width: 920px){
     

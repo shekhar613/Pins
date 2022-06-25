@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import json,os
+from pytube import YouTube
 
 from Teaminterface.settings import BASE_DIR
 
@@ -46,6 +47,19 @@ def pinkIntrest(url):
 
     return Script_data
 
+def youtube_down(url):
+    my_video = YouTube(url)
+
+    Script_data = {"filename":"ddn.mp4","thumbnail":my_video.thumbnail_url,
+        "title":my_video.title,
+        "description":"To long...",
+        "alloader":"YouTube Downloader"
+        }
+
+    base_dir = BASE_DIR
+    my_video = my_video.streams.get_highest_resolution()
+    my_video.download(output_path=os.path.join(base_dir,"downloader/static/video"),filename="ddn.mp4")
 
 
+    return Script_data
 # print(pinkIntrest(""))

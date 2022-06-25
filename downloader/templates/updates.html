@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %} alloader - about {% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/about_alloader.css' %}">
+{% endblock %}
+{% block body %}
+
+
+
+
+
+
+{% block js %}
+<!-- <script src="{% static 'script/downloader.js' %}"></script> -->
+<script>
+    var _section = document.getElementById('Search_bar_section');
+    _section.remove()
+</script>
+{% endblock %}
+
+
+{% endblock %}
