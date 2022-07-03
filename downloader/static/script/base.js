@@ -1,18 +1,95 @@
 // search input clear
 if(document.getElementById("search_xmark")!=null){
     const search_xmark = document.getElementById("search_xmark")
-    const search_video_link = document.getElementById("search_video_link")
+    const search_video_link = document.getElementById("link")
     search_xmark.addEventListener("click",()=>{search_video_link.value="";})
 }
-searchInput = document.getElementById("search_video_link")
+searchInput = document.getElementById("link")
 search_btn = document.querySelector(".search_btn");
     search_btn.onclick = function(){
         if(searchInput.value.length>0){
         this.style = " display: grid; place-content: center;"
         this.innerHTML = "<div class='loader'></div>";
-        setTimeout(()=>{
-            this.style = " display: block;"
-            this.innerHTML = "<i class='fa-solid fa-download'></i>download ";
-        },10000);
+        // setTimeout(()=>{
+        //     this.style = " display: block;"
+        //     this.innerHTML = "<i class='fa-solid fa-download'></i>download ";
+        // },10000);
     }
 }
+
+// form-post submition
+Downloader_section = document.getElementById('Downloader_section');
+
+
+$(document).on('submit', '#post-form', function (e) {
+    e.preventDefault();
+   
+    Downloader_section.innerHTML=`<div class="article-contener" style="padding-top:10px;">
+    <ul class="groups">
+        <li>
+            <div class="downloader_card">
+                <div class="image-session">
+                    <span class="thumbain_image" id="downloader_card_img"></span>
+                </div>
+                <div class="meta-sission">
+                    <div class="head" id="downloader_card_catodry">
+                        <a href="#" class="catogry" id="downloader_catogry"></a>
+                        <span class="flexone"></span>
+                    </div>
+                    <div class="body">
+                        <h2 class="title" id="downloader_card_title"></h2>
+                       
+                    </div>
+                    <div class="footer">
+                        <a href="#" class="button" id="downloader_card_button" download>download</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+    </ul>
+</div>`;
+
+    $.ajax({
+        type: 'POST',
+        url: '/download',
+        data: {
+            link: $('#link').val(),
+            csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+        },
+        success: function (data) {
+            data = $.parseJSON(data);
+            thumb_img = document.getElementById("downloader_card_img")
+            catogry = document.getElementById("downloader_card_catodry")
+            title = document.getElementById("downloader_card_title")
+            download_btn = document.getElementById("downloader_card_button")
+            
+            // settting Styles
+
+            thumb_img.style= 'animation-play-state: paused;';
+            catogry.style= 'animation-play-state: paused; background:white;';
+            title.style= 'animation-play-state: paused; background:white;height:auto;';
+            download_btn.style= 'animation-play-state: paused;background:#063a78';
+
+            // style of download main button of search bar
+            search_btn.style = " display: block;";
+            search_btn.innerHTML = " download ";
+
+            // setting data 
+            if(data['error']==""){
+                download_btn.href=`static/video/${data['filename']}`
+                thumb_img.style.backgroundImage = `url(${data['thumbnail']})`;
+                document.getElementById('downloader_catogry').innerText=data['alloader'];
+                title.innerText = data['title'];
+            }else{
+                title.innerText = data['error'];
+                title.style.color="red";
+                
+            }
+
+
+        }
+    })
+})
+
+

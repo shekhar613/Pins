@@ -4,17 +4,19 @@
 <head>
     {% load static %}
     <meta charset="utf-8">
-    <title>{% block title %} alloader {% endblock %}</title>
+    <title>{% block title %} Pinsdownloader {% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="{% static 'css/search_bar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/new card.css' %}">
     {% block css %}
     <link rel="stylesheet" href="{% static 'css/services section.css' %}" />
     {% endblock %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script src="https://kit.fontawesome.com/65d87443ab.js" crossorigin="anonymous"></script>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 
 <body onload="preloaderFunction()">
@@ -27,7 +29,7 @@
     <nav>
 
         <div class="logo">
-            alloader
+            Pinsdownloader
         </div>
         <input type="checkbox" id="click">
         <label for="click" class="menu-btn">
@@ -47,22 +49,26 @@
         <h2>{{ alloader }}</h2>
     </div>
     <div id="Search_bar_section" class="container">
-        <form action="/download" method="post">{% csrf_token %}
+        <form id="post-form">
+            {% csrf_token %}
             <div class="searchbar">
                 <div class="wrapper">
                     <i class="fa-solid fa-download"></i>
-                    <input id="search_video_link" name="url" type="text" placeholder="Past link here.."
+                    <input  name="link" id="link" type="text" placeholder="Past link here.."
                         required="required">
                     <i id="search_xmark" class="fa-solid fa-xmark"></i>
                 </div>
             </div>
             <div class="download">
                 <button type="submit" class="search_btn">
-                    <i class="fa-solid fa-download"></i>download
+                   download
                 </button>
             </div>
         </form>
 
+    </div>
+    <div id="Downloader_section">
+        
     </div>
     {% block body %}
 
@@ -132,7 +138,12 @@
 
     {% block js %}{% endblock %}
     {% endblock %}
+
     <script src="{% static 'script/base.js' %}"></script>
+
+   
+
+
     <script>
         pl = document.getElementById("preLoader");
         function preloaderFunction() {

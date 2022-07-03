@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+    body{
+        background-color: rgb(34, 82, 104);
+    }
+    .card{
+        height: 200px;
+        width: 500px;
+        background-color: white;
+        position: absolute;
+        transform: translate(-50%,-50%);
+        top: 50%;
+        left: 50%;
+        border-radius: 8px;
+        box-shadow: 0 15px 25px rgba(0,0 ,0 ,0.2);
+        padding: 20px 30px;
+    }
+    .thumbnail{
+        position: relative;
+        float: left;
+        height: 100%;
+        width: 36%;
+        background: rgb(211, 211, 211);
+        border-radius: 50%;
+    }
+    h1{
+        background: rgb(204, 203, 203);
+        width: 40%;
+        height: 30px;
+        float: right;
+        margin: 5px 65px 0 0;
+    }
+    p{
+        background: rgb(190, 190, 190);
+        width: 55%;
+        height: 95px;
+        float: right;
+        margin-top: 20px;
+    }
+    .card *{
+        background: linear-gradient(
+            120deg,
+            #e5e5e5 30%,
+            #f0f0f0 38%,
+            #f0f0f0 40%,
+            #e5e5e5 48%
+        );
+        background-size: 200% 100%;
+        background-position: 100% 0;
+        animation: load 2s infinite;
+    }
+    @keyframes load{
+        100%{
+            background-position: -100% 0;
+        }
+        
+    }
+
+    </style>
+</head>
+
+<body>
+    
+
+
+    <div class="card" id="card">
+        <div class="thumbnail"></div>
+        <h1></h1>
+        <p></p>
+    </div>
+    
+    
+    
+    
+    
+
+
+</body>
+<script>
+    card = document.getElementById('card');
+
+</script>
+
+</html>

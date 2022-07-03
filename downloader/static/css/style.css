@@ -133,6 +133,9 @@ input[type="checkbox"] {
   nav .menu-btn i {
     display: block;
   }
+  nav .logo{
+    font-size: 20px;
+  }
 
   #click:checked~.menu-btn i:before {
     content: "\f00d";
