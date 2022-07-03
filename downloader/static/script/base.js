@@ -37,7 +37,7 @@ $(document).on('submit', '#post-form', function (e) {
                         <span class="flexone"></span>
                     </div>
                     <div class="body">
-                        <h2 class="title" id="downloader_card_title"></h2>
+                        <h3 class="title" id="downloader_card_title"></h3>
                        
                     </div>
                     <div class="footer">
