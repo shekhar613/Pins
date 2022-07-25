@@ -1,3 +1,16 @@
+// auto scroll effects 
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click",function(e){
+        e.preventDefault();
+        document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior : "smooth"
+        });
+    });
+});
+
+
+
+
 // search input clear
 if(document.getElementById("search_xmark")!=null){
     const search_xmark = document.getElementById("search_xmark")
