@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{% static 'css/search_bar.css' %}">
     <link rel="stylesheet" href="{% static 'css/new card.css' %}">
     <link rel="stylesheet" href="{% static 'css/about_alloader.css' %}">
+    <link rel="stylesheet" href="{% static 'css/working_card_css.css' %}">
     {% block css %}
     <link rel="stylesheet" href="{% static 'css/services section.css' %}" />
     {% endblock %}
@@ -40,7 +41,7 @@
             <li><a id="active_navigation" class="active" href="/">Home</a></li>
             <li><a id="active_navigation" href="#About_Pindownloader">About</a></li>
             <li><a id="active_navigation" href="#Pinsdownloader_tools">Tools</a></li>
-            <li class="only_this_one"><a id="active_navigation" href="/works">How its works </a></li>
+            <li class="only_this_one"><a id="active_navigation" href="#working_of_pinsdownloader">How its works </a></li>
             <li><a id="active_navigation" href="#Pindownloader_update">Updates</a></li>
         </ul>
 
@@ -49,6 +50,7 @@
     <div class="main_alloader_heading">
         <h2>{{ alloader }}</h2>
     </div>
+    
     <div id="Search_bar_section" class="container">
         <form id="post-form">
             {% csrf_token %}
@@ -77,10 +79,93 @@
     <!-- section started -->
     <section>
         <!-- How it's works -->
-        <div id="working_of_pinsdownloader" class="working_of_pinsdownloader" style="height:750px ;">
+        <div id="working_of_pinsdownloader" class="working_of_pinsdownloader" style="height:auto;">
             <h2 class="working_heading"> How Its Works </h2>
+            
+            <!-- first Step -->
+            <div class="workin_article-contener" style="padding-top:10px;">
+                <ul class="working_card_groups">
+                    <li>
+                        <div class="working_card">
+                            <div class="working_image-session">
+                                <span class="thumbain_image" id="downloader_card_img" style="background-image: url('static/img/ssweb3.png');"></span>
+                            </div>
+                            <div class="working_meta-sission">
+                                <div class="head" id="downloader_card_catodry">
+                                    <a href="#" class="catogry" id="downloader_catogry">Step 1</a>
+                                    <span class="flexone"></span>
+                                </div>
+                                <div class="body">
+                                    <h3 class="title" id="downloader_card_title">Get link of your video</h3>
+
+                                </div>
+                                <div class="footer">
+                                    <a href="#" class="button" id="downloader_card_button" download>read more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+
+            <!-- second Step -->
+            <div class="workin_article-contener" style="padding-top:10px;">
+                <ul class="working_card_groups">
+                    <li>
+                        <div class="working_card">
+                            <div class="working_image-session">
+                                <span class="thumbain_image" id="downloader_card_img" style="background-image: url('static/img/ssweb.png');"></span>
+                            </div>
+                            <div class="working_meta-sission">
+                                <div class="head" id="downloader_card_catodry">
+                                    <a href="#" class="catogry" id="downloader_catogry">Step 2</a>
+                                    <span class="flexone"></span>
+                                </div>
+                                <div class="body">
+                                    <h3 class="title" id="downloader_card_title">Past link in search box</h3>
+
+                                </div>
+                                <div class="footer">
+                                    <a href="#" class="button" id="downloader_card_button" download>read more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+
+            <!-- third Step -->
+            <div class="workin_article-contener" style="padding-top:10px;">
+                <ul class="working_card_groups">
+                    <li>
+                        <div class="working_card">
+                            <div class="working_image-session">
+                                <span class="thumbain_image" id="downloader_card_img" style="background-image: url('static/img/ssweb2.png');"></span>
+                            </div>
+                            <div class="working_meta-sission">
+                                <div class="head" id="downloader_card_catodry">
+                                    <a href="#" class="catogry" id="downloader_catogry">Step 3</a>
+                                    <span class="flexone"></span>
+                                </div>
+                                <div class="body">
+                                    <h3 class="title" id="downloader_card_title">Click on Download Button</h3>
+
+                                </div>
+                                <div class="footer">
+                                    <a href="#" class="button" id="downloader_card_button" download>read more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+
+
         </div>
-        <div class="row">
+        <div class="row" style="padding-top: 30px;">
             <h2 class="section-heading" aria-hidden="false">Our Tools</h2>
         </div>
         <div class="row" id="Pinsdownloader_tools">
@@ -140,21 +225,10 @@
             </div>
         </div>
         <!-- Update on Pinsdownloader -->
-        <div id="Pindownloader_update" style="height:750px; padding-top: 98px;">
+        <div id="Pindownloader_update" style="height:auto; padding-top: 98px;">
             <div>
                 <h2 class="working_heading"> Updates </h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit corrupti asperiores ipsum
-                    cupiditate culpa ab, obcaecati dolorem quam, tempore error totam impedit quod quae cum perferendis
-                    labore? Officia iste, obcaecati cum optio amet repellendus repudiandae alias tempore excepturi,
-                    nostrum, et quisquam. Error quisquam assumenda nihil fuga, iste odit, sequi voluptatem, velit enim
-                    magni vel dolor molestiae. Animi quam asperiores inventore rem assumenda in odit neque earum
-                    mollitia, aliquam itaque voluptatibus impedit incidunt vitae, minima, quae est exercitationem quasi
-                    alias. Est quia doloribus illo, sint explicabo maiores provident, fugiat quasi ut ad molestias
-                    reprehenderit optio eveniet nihil tempore quibusdam nesciunt. Porro odio odit asperiores corporis
-                    nisi deleniti, delectus quisquam nobis repudiandae consectetur laudantium explicabo sunt nihil! Esse
-                    quisquam voluptatem ullam nemo amet eos rem tempore dolor tenetur nihil. Ratione alias commodi porro
-                    nulla delectus a veniam, est quisquam, facilis maiores excepturi saepe! Odit cum necessitatibus
-                    ratione modi voluptatem pariatur laborum nesciunt?</p>
+                <p>No Updates...</p>
             </div>
         </div>
         <!-- About Pinsdownload -->
@@ -190,14 +264,14 @@
                     </ul>
 
                 </div>
-              
+
 
                 <div class="read_more_about">
                     <h4>Know more about Pinsdownloader</h4>
 
                     <a href="#working_of_pinsdownloader">How it's Works</a>
                     <br>
-                   
+
                     <h5>&</h5>
                     <p>All company names or logos are ® trademarks of their respective holders. The use of them does not
                         imply any affiliation with or endorsement by them & we don't host any copyright images or videos

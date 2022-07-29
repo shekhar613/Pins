@@ -44,8 +44,9 @@ def pinkIntrest(url):
                 f.write(chunk)
     
     except Exception as PinError:
-        Script_data['error']="Invalid video url !"
+        Script_data['error']=f"Invalid video url !{PinError}"
     return Script_data
+
 
 def youtube_down(url):
     Script_data={}
@@ -63,7 +64,8 @@ def youtube_down(url):
         my_video = my_video.streams.get_highest_resolution()
         my_video.download(output_path=os.path.join(base_dir,"downloader/static/video"),filename="ddn.mp4")
     except Exception as YtError:
-        Script_data["error"] = "Invalid video url !"
+
+        Script_data["error"] = f"Invalid video url !{YtError} "
 
     return Script_data
 # print(pinkIntrest(""))

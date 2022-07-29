@@ -10,7 +10,7 @@ import json
 
 # Create your views here.
 def index(request):
-    data = {"alloader":"Downloader by alloader "}
+    data = {"alloader":"Pinsdownloader"}
     return render(request,"index.html",context=data)
 
 def download(request):
@@ -22,7 +22,7 @@ def download(request):
         if("https://www.instagram.com" in url):
             link = Scrapper.instaDownloader(url)
         
-        elif ("https://pin" in url):
+        elif ("https://pin" in url or "https://www.pinterest" in url):
             link = Scrapper.pinkIntrest(url)
             
         elif ("https://youtube" in url or "https://youtu.be" in url or "https://www.youtube" in url):
@@ -33,6 +33,21 @@ def download(request):
   
     data = json.dumps(link)
     return HttpResponse(data)
+
+
+def dashboard(request):
+    pass
+
+
+
+
+
+
+
+
+
+
+
 
 def about_alloader(request):
     data = {}
