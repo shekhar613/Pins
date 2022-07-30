@@ -41,7 +41,7 @@
     width: 280px;
     height: 220px;
     display: block;
-    background-size: cover;
+    /* background-size: cover; */
     background-position: center;
 }
 

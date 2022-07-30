@@ -26,10 +26,9 @@ def pinkIntrest(url):
 
         data=json.loads(script)
 
-        Script_data = {"video_url":data["props"]["initialReduxState"]["pins"][id]["videos"]["video_list"]["V_720P"]["url"],
+        Script_data = {"Pinstory":0,"video_url":data["props"]["initialReduxState"]["pins"][id]["videos"]["video_list"]["V_720P"]["url"],
             "thumbnail":data["props"]["initialReduxState"]["pins"][id]["videos"]["video_list"]["V_720P"]["thumbnail"],
             "title":data["props"]["initialReduxState"]["pins"][id]["title"],
-            "description":data["props"]["initialReduxState"]["pins"][id]["description"],
             "alloader":"Pintrest Downloader",
             "error":""
             }
@@ -44,7 +43,29 @@ def pinkIntrest(url):
                 f.write(chunk)
     
     except Exception as PinError:
-        Script_data['error']=f"Invalid video url !{PinError}"
+        try:
+            
+            data=json.loads(script)
+            downloadurl=data['props']['initialReduxState']['storyPins']
+            for j in downloadurl:
+                print("abcd",j)
+                downloadurl= downloadurl[j]['pages']
+            urls=[]
+            thumb=[]
+            
+            for i in downloadurl:
+                print(i)
+                urls.append(i['blocks'][0]['video']['video_list']['V_EXP3']['url'])
+                thumb.append(i['blocks'][0]['video']['video_list']['V_EXP3']['thumbnail'])
+
+            Script_data = {"Pinstory":1, "video_url":urls, "thumbnail":thumb, "title":"not found",
+                      "error":""}
+
+
+
+        except Exception as StoryError:
+            Script_data['error']=f"Invalid video url !{PinError} or {StoryError}"
+
     return Script_data
 
 
@@ -53,7 +74,7 @@ def youtube_down(url):
     try:
         my_video = YouTube(url)
 
-        Script_data = {"filename":"ddn.mp4","thumbnail":my_video.thumbnail_url,
+        Script_data = {"Pinstory":0,"filename":"ddn.mp4","thumbnail":my_video.thumbnail_url,
             "title":my_video.title,
             "description":"To long...",
             "alloader":"YouTube Downloader",

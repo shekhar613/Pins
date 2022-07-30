@@ -31,37 +31,39 @@ search_btn = document.querySelector(".search_btn");
 }
 
 // form-post submition
+id_download_video = 0;
 Downloader_section = document.getElementById('Downloader_section');
+containt_text=`<div class="article-contener" id=${id_download_video} style="padding-top:10px;">
+<ul class="groups">
+    <li>
+        <div class="downloader_card">
+            <div class="image-session">
+                <span class="thumbain_image" id="downloader_card_img"></span>
+            </div>
+            <div class="meta-sission">
+                <div class="head" id="downloader_card_catodry">
+                    <a href="#" class="catogry" id="downloader_catogry"></a>
+                    <span class="flexone"></span>
+                </div>
+                <div class="body">
+                    <h3 class="title" id="downloader_card_title"></h3>
+                   
+                </div>
+                <div class="footer">
+                    <a href="#" class="button" id="downloader_card_button" download>download</a>
+                </div>
+            </div>
+        </div>
+    </li>
+    
+</ul>
+</div>`
 
 
 $(document).on('submit', '#post-form', function (e) {
     e.preventDefault();
-   
-    Downloader_section.innerHTML=`<div class="article-contener" style="padding-top:10px;">
-    <ul class="groups">
-        <li>
-            <div class="downloader_card">
-                <div class="image-session">
-                    <span class="thumbain_image" id="downloader_card_img"></span>
-                </div>
-                <div class="meta-sission">
-                    <div class="head" id="downloader_card_catodry">
-                        <a href="#" class="catogry" id="downloader_catogry"></a>
-                        <span class="flexone"></span>
-                    </div>
-                    <div class="body">
-                        <h3 class="title" id="downloader_card_title"></h3>
-                       
-                    </div>
-                    <div class="footer">
-                        <a href="#" class="button" id="downloader_card_button" download>download</a>
-                    </div>
-                </div>
-            </div>
-        </li>
-        
-    </ul>
-</div>`;
+    
+    Downloader_section.innerHTML=containt_text;
 
     $.ajax({
         type: 'POST',
@@ -90,10 +92,55 @@ $(document).on('submit', '#post-form', function (e) {
 
             // setting data 
             if(data['error']==""){
-                download_btn.href=`static/video/${data['filename']}`
-                thumb_img.style.backgroundImage = `url(${data['thumbnail']})`;
-                document.getElementById('downloader_catogry').innerText=data['alloader'];
-                title.innerText = data['title'];
+                if(data['Pinstory']==0){
+                    download_btn.href=`static/video/${data['filename']}`
+                    thumb_img.style.backgroundImage = `url(${data['thumbnail']})`;
+                    document.getElementById('downloader_catogry').innerText=data['alloader'];
+                    title.innerText = data['title'];
+                }else{
+                    
+                    
+
+                    for (let i = 1; i < data['video_url'].length; i++) {
+                        thumb=data['thumbnail'][0];
+                        title.innerText = `Pintrest Stories  ${data['video_url'].length} videos  ${data['thumbnail'][i]}`;
+                        document.getElementById('downloader_catogry').innerText=`Story 1`;
+                        thumb_img.style.backgroundImage = `url(${thumb})`;
+                        thumb=data['thumbnail'][i];                        
+                        
+                        Downloader_section.innerHTML+=`<div class="article-contener" id=${i} style="padding-top:10px;">
+                        
+                        <ul class="groups">
+                            <li>
+                                <div class="downloader_card">
+                                    <div class="image-session">
+                                        <span class="thumbain_image" id="downloader_card_img" style =" background-image:url(${thumb});animation-play-state: paused;"></span>
+                                    </div>
+                                    <div class="meta-sission">
+                                        <div class="head" id="downloader_card_catodry" style="animation-play-state: paused; background:white;">
+                                            <a href="#" class="catogry" id="downloader_catogry">Story ${i+1}</a>
+                                            <span class="flexone"></span>
+                                        </div>
+                                        <div class="body">
+                                            <h3 class="title" id="downloader_card_title" style="animation-play-state: paused; background:white;height:auto;">${thumb}</h3>
+                                           
+                                        </div>
+                                        <div class="footer">
+                                            <a href="#" class="button" id="downloader_card_button" download style="animation-play-state: paused;background:#063a78">download</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            
+                        </ul>
+                        </div>`;
+                    }
+                   
+        
+
+                  
+                }
+                
             }else{
                 title.innerText = data['error'];
                 title.style.color="red";
