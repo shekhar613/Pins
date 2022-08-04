@@ -1,0 +1,51 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %} Pinsdownloader - tools {% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/about_alloader.css' %}">
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
+{% endblock %}
+{% block body %}
+
+
+<form id="post-form">
+    {% csrf_token %}
+    <input type="text" id="name" name="name"><br>
+    <input type="text" id="email" name="email"><br>
+    <input type="submit">
+    
+
+</form>
+
+{% block js %}
+<!-- <script src="{% static 'script/downloader.js' %}"></script> -->
+<script type="text/javascript">
+    $(document).on('submit','#post-form',function(e){
+        e.preventDefault();
+
+        $.ajax({
+            type:'POST',
+            url:'/tools',
+            data:{
+                name:$('#name').val(),
+                email:$('#email').val(),
+                csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+            },
+            success:function(data){
+                data = $.parseJSON(data);
+                console.log(data['name']);
+                console.log(data['email']);
+            }
+        })
+    })
+
+</script>
+
+<script>
+    var _section = document.getElementById('Search_bar_section');
+    _section.remove()
+</script>
+{% endblock %}
+
+
+{% endblock %}
