@@ -122,7 +122,9 @@ $(document).on('submit', '#post-form', function (e) {
                                             <span class="flexone"></span>
                                         </div>
                                         <div class="body">
-                                            <h3 class="title" id="downloader_card_title" style="animation-play-state: paused; background:white;height:auto;">${data['title']}</h3>
+                                            <h3 class="title" id="downloader_card_title" style="animation-play-state: paused; background:white;height:auto;">${data['title']}
+                                            Pins
+                                            </h3>
                                            
                                         </div>
                                         <div class="footer">
