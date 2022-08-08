@@ -103,7 +103,7 @@ $(document).on('submit', '#post-form', function (e) {
 
                     for (let i = 1; i < data['video_url'].length; i++) {
                         thumb=data['thumbnail'][0];
-                        title.innerText = `Pintrest Stories  ${data['video_url'].length} videos  ${data['thumbnail'][i]}`;
+                        title.innerText = data['title'];
                         document.getElementById('downloader_catogry').innerText=`Story 1`;
                         thumb_img.style.backgroundImage = `url(${thumb})`;
                         thumb=data['thumbnail'][i];                        
@@ -122,7 +122,7 @@ $(document).on('submit', '#post-form', function (e) {
                                             <span class="flexone"></span>
                                         </div>
                                         <div class="body">
-                                            <h3 class="title" id="downloader_card_title" style="animation-play-state: paused; background:white;height:auto;">${thumb}</h3>
+                                            <h3 class="title" id="downloader_card_title" style="animation-play-state: paused; background:white;height:auto;">${data['title']}</h3>
                                            
                                         </div>
                                         <div class="footer">
