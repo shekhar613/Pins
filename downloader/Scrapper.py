@@ -1,4 +1,4 @@
-from bs4 import BeautifulSoup, Script
+from bs4 import BeautifulSoup
 import requests
 import json,os
 from pytube import YouTube
@@ -48,19 +48,15 @@ def pinkIntrest(url):
         try:
             
             data=json.loads(script)
-            downloadurl=data['props']['initialReduxState']['storyPins']
-            for j in downloadurl:
-                print("abcd",j)
-                downloadurl= downloadurl[j]['pages']
-            urls=[]
-            thumb=[]
+            title = data['props']['initialReduxState']["pins"]["511088257719512841"]["grid_title"]
             
-            for i in downloadurl:
-                print(i)
-                urls.append(i['blocks'][0]['video']['video_list']['V_EXP3']['url'])
-                thumb.append(i['blocks'][0]['video']['video_list']['V_EXP3']['thumbnail'])
+            urls = []
+            thumbnails=[]
+            for i in data['props']['initialReduxState']["pins"]["511088257719512841"]["story_pin_data"]["pages"]:
+                urls.append(i["blocks"][0]["video"]["video_list"]["V_EXP5"]["url"])
+                thumbnails.append(i["blocks"][0]["video"]["video_list"]["V_EXP5"]["thumbnail"])
 
-            Script_data = {"Pinstory":1, "video_url":urls, "thumbnail":thumb, "title":"not found",
+            Script_data = {"Pinstory":1, "video_url":urls, "thumbnail":thumbnails, "title":title,
                       "error":""}
 
 
