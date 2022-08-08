@@ -38,42 +38,6 @@ def dashboard(request):
     pass
 
 
-
-
-
-
-
-
-
-
-
-
-def about_alloader(request):
-    data = {}
-    return render(request,"about_alloader.html",context=data)
-
-def tools_alloader(request):
-    name=""
-    email=""
-    data={}
-    if request.method == 'POST':
-        name = request.POST['name']
-        email = request.POST['email']
-    
-    
-        data = {"name":name,"email":email}
-        data = json.dumps(data)
-        print(data)
-        return HttpResponse(data)
-    else:
-        return render(request,"tools.html",context=data)
-    
-
-def works(request):
-    data = {}
-    return render(request,"how_its_works.html",context=data)
-
-def updates(request):
-    data = {}
-    return render(request,"updates.html",context=data)
+def error_404_view(request,exception):
+    return render(request,"404.html",status=404)
 
