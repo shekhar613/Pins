@@ -1,0 +1,38 @@
+.container{
+    margin: auto;
+    width: 70%;
+    text-align: center;
+    /* background: rgb(116, 0, 0); */
+}
+.container .img{
+    width: 20%;
+    margin: auto;
+    padding-top: 70px;
+}
+.container .img img{
+    width: 100%;
+    height:270px;
+}
+.container h2{
+    text-align: center;
+}
+.container p{
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.container a{
+    text-decoration: none;
+    font-size: 14px;
+    color: blue ;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 768px){
+
+    .container .img{
+        width: 100%;
+    }
+
+
+}

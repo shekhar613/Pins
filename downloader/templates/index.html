@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>{% block title %} Pinsdownloader {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="{% static 'css/search_bar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/new card.css' %}">
+    <link rel="stylesheet" href="{% static 'css/about_alloader.css' %}">
+    <link rel="stylesheet" href="{% static 'css/working_card_css.css' %}">
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'css/services section.css' %}" />
+    {% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://kit.fontawesome.com/65d87443ab.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body onload="preloaderFunction()">
+    <!-- Preloader section  -->
+    <div class="pre_loader_bg" id="preLoader">
+        <div class="pre_loader"></div>
+    </div>
+
+    <!-- navigator -->
+    <nav>
+
+        <div class="pinImg">
+            <i class="fa-solid fa-thumbtack"></i>
+        </div>
+
+        <div class="logo">
+            Pinsdownloader
+        </div>
+        <ul>
+            <li><a id="active_navigation" class="active" href="/">Home</a></li>
+            <li><a id="active_navigation" href="#About_Pindownloader">About</a></li>
+            <li><a id="active_navigation" href="#Pinsdownloader_tools">Tools</a></li>
+            <li class="only_this_one"><a id="active_navigation" href="#working_of_pinsdownloader">How its works </a></li>
+            <li><a id="active_navigation" href="#Pindownloader_update">Updates</a></li>
+        </ul>
+
+    </nav>
+    <!-- search bar top heading section  -->
+    <div class="main_alloader_heading">
+        <h2>{{ alloader }}</h2>
+    </div>
+    
+    <div id="Search_bar_section" class="container">
+        <form id="post-form">
+            {% csrf_token %}
+            <div class="searchbar">
+                <div class="wrapper">
+                    <i class="fa-solid fa-download"></i>
+                    <input name="link" id="link" type="text" placeholder="Past link here.." required="required">
+                    <i id="search_xmark" class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+            <div class="download">
+                <button type="submit" class="search_btn">
+                    download
+                </button>
+            </div>
+        </form>
+
+    </div>
+    <div id="Downloader_section">
+
+    </div>
+    {% block body %}
+
+
+
+    <!-- section started -->
+    <section>
+        <!-- How it's works -->
+        <div id="working_of_pinsdownloader" class="working_of_pinsdownloader" style="height:auto;">
+            <h2 class="working_heading"> How Its Works </h2>
+            
+            <!-- first Step -->
+            <div class="workin_article-contener" style="padding-top:10px;">
+                <ul class="working_card_groups">
+                    <li>
+                        <div class="working_card">
+                            <div class="working_image-session">
+                                <span class="thumbain_image" id="downloader_card_img" style="background-image: url('static/img/ssweb3.png');"></span>
+                            </div>
+                            <div class="working_meta-sission">
+                                <div class="head" id="downloader_card_catodry">
+                                    <a href="#" class="catogry" id="downloader_catogry">Step 1</a>
+                                    <span class="flexone"></span>
+                                </div>
+                                <div class="body">
+                                    <h3 class="title" id="downloader_card_title">Get link of your video</h3>
+
+                                </div>
+                                <div class="footer">
+                                    <a href="#" class="button" id="downloader_card_button" download>read more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+
+            <!-- second Step -->
+            <div class="workin_article-contener" style="padding-top:10px;">
+                <ul class="working_card_groups">
+                    <li>
+                        <div class="working_card">
+                            <div class="working_image-session">
+                                <span class="thumbain_image" id="downloader_card_img" style="background-image: url('static/img/ssweb.png');"></span>
+                            </div>
+                            <div class="working_meta-sission">
+                                <div class="head" id="downloader_card_catodry">
+                                    <a href="#" class="catogry" id="downloader_catogry">Step 2</a>
+                                    <span class="flexone"></span>
+                                </div>
+                                <div class="body">
+                                    <h3 class="title" id="downloader_card_title">Past link in search box</h3>
+
+                                </div>
+                                <div class="footer">
+                                    <a href="#" class="button" id="downloader_card_button" download>read more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+
+            <!-- third Step -->
+            <div class="workin_article-contener" style="padding-top:10px;">
+                <ul class="working_card_groups">
+                    <li>
+                        <div class="working_card">
+                            <div class="working_image-session">
+                                <span class="thumbain_image" id="downloader_card_img" style="background-image: url('static/img/ssweb2.png');"></span>
+                            </div>
+                            <div class="working_meta-sission">
+                                <div class="head" id="downloader_card_catodry">
+                                    <a href="#" class="catogry" id="downloader_catogry">Step 3</a>
+                                    <span class="flexone"></span>
+                                </div>
+                                <div class="body">
+                                    <h3 class="title" id="downloader_card_title">Click on Download Button</h3>
+
+                                </div>
+                                <div class="footer">
+                                    <a href="#" class="button" id="downloader_card_button" download>read more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+
+
+        </div>
+        <div class="row" style="padding-top: 30px;">
+            <h2 class="section-heading" aria-hidden="false">Our Tools</h2>
+        </div>
+        <div class="row" id="Pinsdownloader_tools">
+            <div class="column">
+                <div class="card">
+                    <div class="icon-wrapper">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <h3> Reels downloader</h3>
+                    <p>download your video by video link</p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <div class="icon-wrapper">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </div>
+                    <h3>Titok downloader</h3>
+                    <p>download your video by video link</p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <div class="icon-wrapper">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <h3>Likee downloader</h3>
+                    <p>download your video by video link</p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <div class="icon-wrapper">
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
+                    <h3>Youtube downloader</h3>
+                    <p>download your video by video link</p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <div class="icon-wrapper">
+                        <i class="fa-brands fa-pinterest"></i>
+                    </div>
+                    <h3>Pinterest downloader</h3>
+                    <p>download your video by video link</p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <div class="icon-wrapper">
+                        <i class="fa-brands fa-facebook"></i>
+                    </div>
+                    <h3>Facebook downloader</h3>
+                    <p>download your video by video link</p>
+                </div>
+            </div>
+        </div>
+        <!-- Update on Pinsdownloader -->
+        <div id="Pindownloader_update" style="height:auto; padding-top: 98px;">
+            <div>
+                <h2 class="working_heading"> Updates </h2>
+                <p>No Updates...</p>
+            </div>
+        </div>
+        <!-- About Pinsdownload -->
+        <div id="About_Pindownloader">
+            <div class="about-section">
+                <div class="heading">
+                    <h2>About us</h2>
+                </div>
+                <div class="subtitle">
+                    <h4>Pinsdownloader is the solution to download. We provide the most popular downloader tools to save
+                        your videos online </h4>
+                </div>
+                <div class="text-area">
+                    <h3> Pinsdownload !</h3>
+                    <br>
+                    <p>Pinsdownloader is the solution for those people who want to download file or video from the
+                        internet. We provide the most popular Downloader Tools and support to solve your download
+                        problem.
+                    </p>
+                    <br>
+                    <h3> Our tools </h3>
+                    <ul>
+                        <li>Pintrest video downloader</li>
+                        <p></p>
+                        <li>Instagram video downloader</li>
+                        <p></p>
+                        <li>YouTube video downloader </li>
+                        <p></p>
+                        <li>Facebook video downloader</li>
+                        <p></p>
+                        <li>Likee video downloader</li>
+                        <p></p>
+                    </ul>
+
+                </div>
+
+
+                <div class="read_more_about">
+                    <h4>Know more about Pinsdownloader</h4>
+
+                    <a href="#working_of_pinsdownloader">How it's Works</a>
+                    <br>
+
+                    <h5>&</h5>
+                    <p>All company names or logos are ® trademarks of their respective holders. The use of them does not
+                        imply any affiliation with or endorsement by them & we don't host any copyright images or videos
+                        on this website, all rights belong to their respective owners.</p>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+    {% block js %}{% endblock %}
+    {% endblock %}
+
+    <script src="{% static 'script/base.js' %}"></script>
+
+
+
+
+    <script>
+        pl = document.getElementById("preLoader");
+        function preloaderFunction() {
+
+            setTimeout(() => {
+                pl.style = "position:none;display:none;z-index:0000;"
+            })
+        }
+    </script>
+
+
+</body>
+
+</html>
